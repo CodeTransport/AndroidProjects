@@ -1,0 +1,5 @@
+MyEclipse崩溃：107374../
+问题现象：导入某个maven工程到myEclipse工作空间之后，导致myEclipse崩溃，原因很可能是由于内存溢出引起的。然后再次启动软件的时候，还是提示错误，myEclipse
+启动不了。
+解决办法：找到Myeclipse软件的工作空间目录，F:\Workspace\MyEclipse\.metadata\.plugins\org.eclipse.core.resources，文件下有一个54.snap文件，删除。
+        然后重新启动MyEclipse就可以了。
