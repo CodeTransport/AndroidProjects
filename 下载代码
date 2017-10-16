@@ -1,0 +1,40 @@
+1，替换settings.xml（包括用户目录下和maven安装目录下）
+
+例如：
+
+C:\Users\Administrator\.m2
+
+D:\Program Files\apache-maven-3.3.9\conf.
+
+2， clone状态机代码
+
+git clone ssh://ha/ZXSD-OTN/squirrel-foundation
+
+注意 ”ha“为本机配置的ssh别名，可在git-bash下通过 cat ~/.ssh/config 查看，例如：
+
+Host ha
+HostName gerrit.zte.com.cn
+User 10171653
+Port 29418
+IdentityFile /d/key/oscp_core
+KexAlgorithms +diffie-hellman-group1-sha1
+
+ 
+
+3， 按下面的顺序进行编译
+
+代码编译顺序：
+
+squirrel-foundation\squirrel-foundation
+
+odl-controller\sd-otn\model\net-optical-api
+
+odl-controller\sdotn-artifacts
+
+odl-controller\parent
+
+odl-controller\build
+
+编译中移版本：
+
+mvn clean install -Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dskip.karaf.featureTest=true -Pbuild-for-zy
